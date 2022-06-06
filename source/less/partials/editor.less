@@ -1,0 +1,95 @@
+.editor {
+  margin-top: 34px;
+
+  & + .editor {
+    margin-top: 88px;
+  }
+
+  &__wrapper {
+    .col();
+    .size(12);
+  }
+
+  &__title {
+    margin-bottom: 56px;
+    font-size: 56px;
+    text-align: center;
+  }
+
+  &__content {
+    mark {
+      font-size: .8888889em;
+      background: #f4f4f5;
+      border-radius: 3px;
+      padding: 1px 5px 3px;
+    }
+
+    p {
+      margin-bottom: 0.5em;
+    }
+
+    ul {
+      margin-top: 1em;
+    }
+
+    ul li {
+      margin-bottom: 1.25rem;
+    }
+
+    li > code {
+      display: block;
+      margin-bottom: 0;
+    }
+  }
+
+  &__ordered {
+    padding-left: 1.6666667rem;
+  }
+
+  &__step {
+    margin-bottom: 1.6666667rem;
+  }
+
+  &__subtitle {
+    position: relative;
+    margin-bottom: .8888889em;
+    font-size: 24px;
+
+    &::before {
+      content: "";
+      width: .3333333em;
+      height: .3333333em;
+      top: calc(.8888889em - .1666667em);
+      left: -1.6666667rem;
+      position: absolute;
+      background-color: #d4d4d8;
+      border-radius: 50%;
+    }
+  }
+
+  &__video {
+    max-width: 100%;
+    margin-top: 18px;
+    border: 1px solid lightgray;
+  }
+
+  &__image {
+    max-width: calc(100% + 1.6666667rem);
+    margin-left: -1.6666667rem;
+    margin-top: 6px;
+    border: 1px solid lightgray;
+    
+  }
+
+  &__comment {
+    margin: 2rem 0;
+    padding: 2rem;
+    background-color: rgb(254, 252, 232);
+
+    &--title {
+      position: relative;
+      margin-bottom: .8888889em;
+      font-size: 22px;
+    }
+  }
+}

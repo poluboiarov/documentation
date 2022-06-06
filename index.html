@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Документация</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>*, *::before, *::after {box-sizing:border-box}body {font-family:'PT Sans', sans-serif; margin:0; font-size:1.2rem; line-height:1.75}body:not(.loaded) .header__wrapper {height:48px}</style>
+</head>
+<body class="body">
+  <header id="header" class="header">
+    <div class="container">
+      <div class="header__wrapper">
+        <nav class="header__sort">
+          <button class="header__sort--name" type="button">Навигация</button>
+          <ul class="header__sort--list">
+            <li class="header__sort--item"><a class="header__sort--link smooth" href="#editor">Редакторы</a></li>
+            <li class="header__sort--item"><a class="header__sort--link smooth" href="#plugins">Плагины</a></li>
+            <li class="header__sort--item"><a class="header__sort--link smooth" href="#chunks">Чанки</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    <h1 class="visually-hidden">Документация для сайта Liber Vita</h1>
+    <section id="editor" class="editor">
+      <div class="container">
+        <div class="editor__wrapper">
+          <h2 class="editor__title">Редакторы</h2>
+          <div class="editor__content">
+            <div class="editor__ordered">
+              <h3 class="editor__subtitle">Копирование из документов</h3>
+              <p>На данным момент всё настроено так, что при вставке текста из документа все лишние стили удаляются.</p>
+              <p>Все пустые строки между абзацами убираются, порядок заголовков проставляется соответственно документу, шаблонные стили для списков применяются автоматически.</p>
+            </div>
+            <video class="editor__video" src="/assets/video/editor.mp4" muted controls playsinline></video>
+            <div class="editor__comment">
+              <h4 class="editor__comment--title">Исключения!</h4>
+              <div class="editor__comment--content">
+                <p>«Чистка» не работает, если копировать текст из Google Docs, используя браузеры на базе Chromium: Google Chrome, Opera, Yandex browser.</p>
+                <p>Через браузер Mozilla Firefox и десктопные приложения копирование работает нормально.</p>
+                <p>Safari не проверено.</p>
+              </div>
+            </div>
+            <!-- <div class="editor__ordered">
+              <h3 class="editor__subtitle">Вставка без форматрирования</h3>
+              <p>Для того, чтобы вставить текст без форматирования нажмите <mark>Ctrl+Shift+V вместо Ctrl+V</mark>.</p>
+              <p>Либо можно отформатировать текст нажав специальную кнопку на панели редактора:</p>
+            </div>
+            <video class="editor__video" src="/assets/video/format.mp4" muted controls playsinline></video>
+            <hr> -->
+            <!-- <div class="editor__ordered">
+              <h3 class="editor__subtitle">Стилизация списков</h3>
+              <p>Чтобы стилизовать спискок для тэга <code>&lt;ul&gt;</code> должны быть прописаны классы <code>class="list list-marked"</code>. Классы можно прописать вручную перейдя на вкладку "Источник", либо воспользоваться функционалом стилизации:</p>
+            </div>
+            <video class="editor__video" src="/assets/video/ul-marked.mp4" muted controls playsinline></video>
+            <div class="editor__comment">
+              <h4 class="editor__comment--title">Нумерованный спискок</h4>
+              <div class="editor__comment--content">
+                <p>Нумерованный список работает похожим образом. Он должен иметь классы <code>class="list list-numbered"</code>. Можно так же воспользоваться функционалом стилизации.</p>
+              </div>
+            </div>
+            <hr> -->
+            <div class="editor__ordered">
+              <h3 class="editor__subtitle">Подключение чанков</h3>
+              <p><a class="smooth" href="#chunks">Список чанков и их параметры.</a></p>
+              <p>Для подключения чанка используется конструкция: <code>[[$chunkName]]</code>.</p>
+              <p>Если чанк имеет входные параметры, то добавляем разделитель в виде знака вопроса и прописываем необходимые параметры и их значения: <code>[[$chunkName<span class="code__attention">?</span> &title=<span class="code__string">`Заголовок`</span> &ids=<span class="code__string">`23,24`</span>]]</code>.</p>
+            </div>
+            <div class="editor__comment">
+              <h4 class="editor__comment--title">Осторожно!</h4>
+              <div class="editor__comment--content">
+                <p>Визуальный редактор "любит" вставлять ненужные тэги. Поэтому при размещение чанков желательно использовать вкладку "Источник" либо редактор кода, для того, чтобы избежать нежелательную разметку.</p>
+              </div>
+              <video class="editor__video" src="/assets/video/autotags.mp4" muted controls playsinline></video>
+              <div id="dynamic-links" class="anchor"></div>
+            </div>
+            <div class="editor__ordered">
+              <h3 class="editor__subtitle">Получение динамической ссылки</h3>
+              <p>Вместо абсолютной ссылки можно использовать сокращение: <code>[[~id]]</code>.</p>
+              <p>Это удобнее, так как ссылка генерируется автоматически.</p>
+              <p>В будущем при необходимости сменить url страницы не нужно будет везде менять ссылку вручную.</p>
+              <p>Пример использования:</p>
+              <p>
+                <code>Вместо &lt;a href="<span class="code__string">https://liber-vita.ru/narkologicheskaya-pomoshh/</span>"&gt;<br></code>
+                <code>Пишем &lt;a href="<span class="code__string">[[~97]]</span>"&gt; <span class="gray">(id ресурса в админке)</span></code>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="plugins" class="editor">
+      <div class="container">
+        <div class="editor__wrapper">
+          <h2 class="editor__title">Плагины</h2>
+          <div class="editor__content">
+            <div class="editor__ordered">
+              <h3 class="editor__subtitle">Редактирование баннеров</h3>
+              <div class="editor__step">
+                <p>Все баннеры находятся в разделе <mark>Пакеты -> BannerY</mark>.</p>
+                <img class="editor__image" src="/assets/images/banner_1.png">
+              </div>
+              <div class="editor__step">
+                <p>Для создания нового баннера имеется соответствующая кнопка <mark>«Новый баннер»</mark>.</p>
+                <p>Для редактирования уже имеющихся баннеров <mark>кликаем по нужному дважды ЛКМ</mark> или <mark>ПКМ -> «Изменить баннер»</mark>.</p>
+                <img class="editor__image" src="/assets/images/banner_2.png">
+              </div>
+              <div class="editor__step">
+                <p>Основные поля для заполнения:</p>
+                <ul>
+                  <li>
+                    <code><span class="code__string">Название:</span> тип данных "text"</code>
+                  </li>
+                  <li>
+                    <code><span class="code__string">Текущее изображение:</span> тип данных "image"</code>
+                  </li>
+                  <li>
+                    <code><span class="code__string">Текст баннера:</span> тип данных "text/html"</code>
+                  </li>
+                </ul>
+                <img class="editor__image" src="/assets/images/banner_3.png">
+              </div>
+              <div class="editor__step">
+                <p>Расположение заполненых полей на баннере соответственно:</p>
+                <img class="editor__image" src="/assets/images/banner_4.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="chunks" class="editor">
+      <div class="container">
+        <div class="editor__wrapper">
+          <h2 class="editor__title">Чанки</h2>
+          <div class="editor__content">
+            <div class="editor__ordered">
+              <h3 class="editor__subtitle">$doctors <span class="gray">(врачи)</span></h3>
+              <p>Карусель с выводом врачей.</p>
+              <p>Принимаемые параметры:</p>
+              <ul>
+                <li>
+                  <code>&title=<span class="code__string">`Заголовок секции`</span> <span class="gray">| (по умолчанию выводит "Наши врачи")</span></code>
+                </li>
+                <li>
+                  <code>&ids=<span class="code__string">`Идентификаторы врачей`</span> <span class="gray">| (по умолчанию выводит всех врачей)</span></code>
+                </li>
+              </ul>
+            </div>
+            <hr>
+            <div class="editor__ordered">
+              <h3 class="editor__subtitle">$reviews <span class="gray">(отзывы)</span></h3>
+              <p>Карусель с выводом отзывов.</p>
+              <p>Принимаемые параметры:</p>
+              <ul>
+                <li>
+                  <code>&title=<span class="code__string">`Заголовок секции`</span> <span class="gray">| (по умолчанию выводит "Отзывы")</span></code>
+                </li>
+                <li>
+                  <code>&ids=<span class="code__string">`Идентификаторы отзывов`</span> <span class="gray">| (по умолчанию выводит все отзывы)</span></code>
+                </li>
+              </ul>
+            </div>
+            <hr>
+            <div class="editor__ordered">
+              <h3 class="editor__subtitle">$blockquote <span class="gray">(цитата)</span></h3>
+              <p>Принимаемые параметры:</p>
+              <ul>
+                <li>
+                  <code>&text=<span class="code__string">`Текст цитаты`</span> <span class="gray">| (по умолчанию рыба-текст)</span></code>
+                </li>
+                <li>
+                  <code>&name=<span class="code__string">`Имя цитирующего`</span> <span class="gray">| (<span class="code__attention">Не обязательно!</span> Если не заполнено, то выводится только текст цитаты)</span></code>
+                </li>
+                <li>
+                  <code>&position=<span class="code__string">`Должность цитирующего`</span> <span class="gray">| (по умолчанию игнорируется, выводится только если прописано имя)</span></code>
+                </li>
+                <li>
+                  <code>
+                    &image=<span class="code__string">`Ссылка на изображение цитирующего`</span> <span class="gray">| (по умолчанию тестовое изображение, выводится только если прописано имя)</span>
+                    <div>Ссылка на файл строится от корня сайта, например: <br><span class="code__attention">assets/images/</span>users/user-betty-wade-60x60.jpg</div>
+                  </code>
+                </li>
+              </ul>
+            </div>
+            <hr>
+            <div class="editor__ordered">
+              <h3 class="editor__subtitle">$certifications <span class="gray">(лицензии)</span></h3>
+              <p>Карусель с выводом лицензий.</p>
+              <p>Нет принимаемых параметров.</p>
+            </div>
+            <hr>
+            <div class="editor__ordered">
+              <h3 class="editor__subtitle">$prices <span class="gray">(цены)</span></h3>
+              <p>Вывод секции с ценами до трех блоков. <br>Работает только в шаблоне услуг.</p>
+              <p>Принимаемые параметры:</p>
+              <ul>
+                <li>
+                  <code>&title=<span class="code__string">`Заголовок секции`</span> <span class="gray">| (по умолчанию выводит "Цены на услуги")</span></code>
+                </li>
+              </ul>
+            </div>
+            <div class="editor__comment">
+              <h4 class="editor__comment--title">Наследование</h4>
+              <div class="editor__comment--content">
+                <p>Редактор с ценами находится именно у родительской категории! Вложенные услуги наследуют цены у верхнего уровня.</p>
+              </div>
+            </div>
+            <hr>
+            <div class="editor__ordered">
+              <h3 class="editor__subtitle">$recommendation <span class="gray">(подтвержденная информация)</span></h3>
+              <p>Блок "Доктор проверил".</p>
+              <p>Принимаемые параметры:</p>
+              <ul>
+                <li>
+                  <code>&name=<span class="code__string">`Имя врача`</span> <span class="gray">| (по умолчанию выводит "Кристина Ивановна")</span></code>
+                </li>
+                <li>
+                  <code>&position=<span class="code__string">`Специальность врача`</span> <span class="gray">| (по умолчанию игнорируется)</span></code>
+                </li>
+                <li>
+                  <code>&text=<span class="code__string">`Сообщение от врача`</span> <span class="gray">| (по умолчанию рыба-текст)</span></code>
+                </li>
+                <li>
+                  <code>
+                    &image=<span class="code__string">`Ссылка на изображение врача`</span> <span class="gray">| (по умолчанию тестовое изображение)</span> 
+                    <div>Ссылка на файл строится от корня сайта, например: <br><span class="code__attention">assets/images/</span>our-doctors/doctor.jpg</div>
+                  </code>
+                </li>
+              </ul>
+            </div>
+            <hr>
+            <!-- <div class="editor__ordered">
+              <h3 class="editor__subtitle">$form <span class="gray">(email форма)</span></h3>
+              <p>Форма с вводом email.</p>
+              <p>Принимаемые параметры:</p>
+              <ul>
+                <li>
+                  <code>&title=<span class="code__string">`Заголовок формы`</span> <span class="gray">| (по умолчанию выводит "Запись на консультацию")</span></code>
+                </li>
+                <li>
+                  <code>&text=<span class="code__string">`Описание формы`</span> <span class="gray">| (по умолчанию выводи "Запишитесь на бесплатную консультацию в анонимную наркологическую клинику в Москве!")</span></code>
+                </li>
+                <li>
+                  <code>&placeholder=<span class="code__string">`Пояснение на поле ввода`</span> <span class="gray">| (по умолчанию выводит "Введите свой email")</span></code>
+                </li>
+                <li>
+                  <code>&button=<span class="code__string">`Текст кнопки`</span> <span class="gray">| (по умолчанию выводит "Записаться")</span></code>
+                </li>
+              </ul>
+            </div>
+            <hr> -->
+            <div class="editor__ordered">
+              <h3 class="editor__subtitle">$form_phone <span class="gray">(форма с телефоном)</span></h3>
+              <p>Форма с полем для ввода телефона. Так же отображает основной телефон клиники, как альтернатива вводу телефона.</p>
+              <p>Принимаемые параметры:</p>
+              <ul>
+                <li>
+                  <code>&title=<span class="code__string">`Заголовок формы`</span> <span class="gray">| (по умолчанию выводит "Хотите узнать, как вылечить алкоголизм или наркоманию?")</span></code>
+                </li>
+                <li>
+                  <code>&text=<span class="code__string">`Описание формы`</span> <span class="gray">| (по умолчанию выводи "Оставьте ваш номер <br>и получите бесплатную консультацию")</span></code>
+                </li>
+                <li>
+                  <code>&button=<span class="code__string">`Текст кнопки`</span> <span class="gray">| (по умолчанию выводит "Позвонить мне")</span></code>
+                </li>
+              </ul>
+            </div>
+            <hr>
+            <div class="editor__ordered">
+              <h3 class="editor__subtitle">$equipage <span class="gray">(перечень городов Подмосковья)</span></h3>
+              <p>Блок с выводом колонок городов Подмосковья с якорями на блок "Почему стоит выбрать клинику Либер Вита"</p>
+              <p>Не принимает параметры.</p>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="footer" class="footer"></footer>
+  
+  <script src="/assets/javascript/libs.min.js"></script>
+  <script src="/assets/javascript/main.js"></script>
+</body>
+</html>

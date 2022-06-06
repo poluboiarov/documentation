@@ -1,0 +1,106 @@
+.header {
+  background-color: #fcfcfc;
+  transition-property: box-shadow;
+  transition-duration: 175ms;
+  transition-timing-function: ease-in;
+  z-index: 1;
+
+  &.sticky {
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 8px 22px -6px rgba(24, 39, 75, 0.12), 0px 14px 64px -4px rgba(24, 39, 75, 0.12);
+    transition-duration: 250ms;
+    transition-timing-function: ease-out;
+    
+    .header__wrapper {
+      border-bottom-color: transparent;
+      transition-duration: 250ms;
+      transition-timing-function: ease-out;
+      transition-delay: 0ms;
+    }
+
+    .md-block({
+      .header__sort--list {
+        box-shadow: 0px 8px 22px -6px rgba(24, 39, 75, 0.12), 0px 14px 64px -4px rgba(24, 39, 75, 0.12);
+      }
+    });
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 48px;
+
+    border-bottom: 1px solid rgba(97, 139, 171, 0.16);
+    transition-property: border-color;
+    transition-duration: 175ms;
+    transition-timing-function: ease-in;
+    transition-delay: 125ms;
+
+    .md-block({
+      position: relative;
+    });
+  }
+
+  &__sort {
+    .col();
+    .size(12);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--name {
+      display: none;
+      color: dodgerblue;
+
+      .to(@break_md, {
+        display: block;
+      });
+    }
+
+    &--list {
+      .from(@break_md+1, {
+        display: flex !important;
+      });
+
+      .md-block({
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 48px;
+        
+        padding: 4px 0;
+        background-color: #E5F0FF;
+        border: 1px solid rgba(97, 139, 171, 0.06);
+        border-top: 0;
+      });
+    }
+
+    &--item {
+      .from(@break_md+1, {
+        margin-right: 12px;
+  
+        &:last-child {
+          margin-right: 0;
+        }
+      });
+    }
+
+    &--link {
+      color: dodgerblue;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      .md-block({
+        display: block;
+        width: 100%;
+        padding: 0 12px;
+        text-align: center;
+      });
+    }
+  }
+}

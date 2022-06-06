@@ -1,0 +1,172 @@
+// * Default *
+
+body {
+  // background-color: #F8FCFF;
+  color: #102532;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  
+  min-height: 100vh;
+  min-width: 320px;
+  margin: 0 auto;
+}
+
+.main {
+  overflow: hidden;
+}
+
+.to(@break_sm, {
+  h1,
+  h2 {
+    line-height: 1.2;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.5;
+  }
+});
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+svg {
+	color: currentColor;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+button,
+input,
+textarea,
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible) {
+	outline: none !important;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+	outline: 2px solid tomato !important;
+}
+
+input, button, select, optgroup, textarea {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+	vertical-align: middle;
+	border-style: none;
+}
+
+svg {
+	overflow: hidden;
+	vertical-align: middle;
+}
+
+ul, ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+hr {
+  display: block;
+  margin: 54px 0;
+  border: none;
+  height: 1px;
+  background-color: lightgray;
+}
+
+code {
+  color: #d6deeb;
+  background-color: #011627;
+  padding: 6px 10px;
+  font-size: 75%;
+  border-radius: 5px;
+  margin-bottom: 1.25rem;
+  overflow-x: auto;
+  font-family: monospace;
+}
+
+.smooth {
+  color: dodgerblue;
+}
+
+::-webkit-input-placeholder {
+	color: #7A7978;
+	font-weight: normal;
+}
+
+:-ms-input-placeholder {
+	color: #7A7978;
+	font-weight: normal;
+}
+
+::-moz-placeholder {
+	color: #7A7978;
+	font-weight: normal;
+}
+
+:-moz-placeholder {
+	color: #7A7978;
+	font-weight: normal;
+}
+
+// * Services *
+
+.container {
+  .wrapper();
+
+  .sm-block({
+    max-width: 368px;
+  });
+}
+
+.row {
+  .row();
+}
+
+.visually-hidden {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  position: absolute;
+  margin: -1px;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.gray {
+  color: darkgray;
+}
