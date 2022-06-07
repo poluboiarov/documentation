@@ -65,7 +65,7 @@
       // Bind toggle functions
       if (!isBinded) {
         $toggle.on('click', toggleSortList);
-        $links.on('click', sortListCloser);
+        $links.on('click', toggleSortList);
         $(document).on('mouseup', sortListCloser);
         // change status
         isBinded = true;
@@ -76,7 +76,7 @@
 
       // Unbind toggle functions
       $toggle.off('click', toggleSortList);
-      $links.off('click', sortListCloser);
+      $links.off('click', toggleSortList);
       $(document).off('mouseup', sortListCloser);
       // change status
       isBinded = false;
